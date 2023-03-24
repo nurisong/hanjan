@@ -1,0 +1,61 @@
+package com.hj.community.review_sub.controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.hj.common.model.vo.Attachment;
+import com.hj.community.review.model.service.ReviewService;
+import com.hj.community.review.model.vo.Review;
+import com.hj.product_sub.model.vo.Subscription;
+
+/**
+ * Servlet implementation class Review_subDetailController
+ */
+@WebServlet("/detail.rs")
+public class Review_subDetailController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Review_subDetailController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		int subRevNo = Integer.parseInt(request.getParameter("rno"));
+		
+		Review r = new ReviewService().selectSubReview(subRevNo);
+		
+		Subscription s = new ReviewService().selectListSubProduct(Integer.parseInt(r.getRevProduct()));
+		
+		ArrayList<Attachment> list = new ReviewService().selectAttachmentList(subRevNo);
+		
+		request.setAttribute("r", r);
+		request.setAttribute("s", s);
+		request.setAttribute("list", list);
+		
+		
+		request.getRequestDispatcher("views/community/review_sub/review_subDetailView.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}

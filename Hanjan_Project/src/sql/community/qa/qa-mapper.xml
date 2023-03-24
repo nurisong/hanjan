@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>QA 관련 SQL문</comment>
+	
+	<entry key="selectListCount">
+		SELECT
+				COUNT(*)
+		  FROM
+				QA
+		 WHERE
+				QA_WRITER = ?
+		   AND
+		   		QA_STATUS = 'Y'
+	</entry>
+	
+	<entry key="selectList">
+		SELECT
+				QA_NO,
+				QA_WRITER,
+				QA_TITLE,
+				QA_CONTENT,
+				TO_CHAR(QA_DATE, 'YYYY-MM-DD') QA_DATE,
+				QA_COUNT,
+				QA_CATEGORY,
+				QA_REPLY,
+				QA_REPLY_DATE,
+				QA_STATUS
+		  FROM
+				QA
+		 WHERE
+				QA_WRITER = ?
+		   AND
+		   		QA_STATUS = 'Y'
+		 ORDER
+		    BY
+		    	QA_DATE DESC  
+	</entry>
+	
+	<entry key="selectQa">
+		SELECT
+				QA_NO,
+				QA_WRITER,
+				QA_TITLE,
+				QA_CONTENT,
+				TO_CHAR(QA_DATE, 'YYYY-MM-DD') QA_DATE,
+				QA_COUNT,
+				QA_CATEGORY,
+				QA_REPLY,
+				TO_CHAR(QA_REPLY_DATE, 'YYYY-MM-DD') QA_REPLY_DATE,
+				QA_STATUS
+		  FROM
+				QA
+		 WHERE
+				QA_NO = ?
+	</entry>
+	
+	<entry key="intsertQA">
+		INSERT
+		  INTO
+		  		QA
+		  		(
+		  		QA_NO,
+		  		QA_WRITER,
+		  		QA_TITLE,
+		  		QA_CONTENT,
+		  		QA_CATEGORY,
+		  		QA_DATE
+		  		)
+		 VALUES
+		 		(
+		 		SEQ_QNO.NEXTVAL,
+		 		?,
+		 		?,
+		 		?,
+		 		?,
+		 		SYSDATE
+		 		)
+	</entry>
+	
+	<entry key="insertAttachment">
+		INSERT
+		  INTO
+		       ATTACHMENT
+		       (
+		       FILE_NO,
+		       REF_NO,
+		       ORIGIN_NAME,
+		       CHANGE_NAME,
+		       FILE_PATH,
+		       COMM_TYPE
+		       )
+		VALUES
+		       (
+		       SEQ_ANO.NEXTVAL,
+		       SEQ_QNO.CURRVAL,
+		       ?,
+		       ?,
+		       ?,
+		       ?
+		       )
+	</entry>
+	
+	
+</properties>

@@ -1,0 +1,214 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    margin: 0;
+    /* color: rgba(0,0,0,.65); */
+    width: 100%;
+    min-height: 100vh;
+    line-height: 1.5715;
+    font-size: 14px;
+}
+div{
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.sub-app-contentWrapper{
+    background: white;
+}
+
+.app-wrapper{
+    margin: 0px auto;
+    font-size: 18px;
+    padding: 89px 0px 207px;
+}
+
+.app-title{
+    font-weight: 800;
+    text-align: center;
+    color: rgb(63,72,107);
+    line-height: 1.67;
+}
+
+.app-wrapper .progress-label{
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(112, 112, 112);
+}
+
+.app-wrapper .progress-label span{
+    font-weight: bold;
+}
+
+.sub-deliveryWrapper{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.delivery-info-box{
+    background-color: rgb(244, 244, 244);
+    height: 220px;
+    padding: 0px 30px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 12px;
+    position: relative;
+    width:600px;
+}
+
+.delivery-img{
+    left: 43px;
+    width: 235px !important;
+}
+
+.sub-deliveryWrapper .right-text-wrapper{
+    width: 100%;
+    color: rgb(178, 178, 178);
+    font-size: 18px;
+}
+
+.sub-deliveryWrapper .right-text-wrapper .first{
+    margin-bottom: 4px;
+}
+
+.sub-deliveryWrapper .right-text-wrapper .text{
+    text-align: right;
+}
+
+.sub-deliveryWrapper .right-text-wrapper .text span{
+    margin-right: 10px;
+}
+
+.delivery-info-member{
+    width: 350px;
+    padding: 0px 2px;
+    color: rgb(63, 63, 63);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 13px;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.delivery-info-member .text{
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.mname{
+    font-size: 18px;
+}
+
+.delivery-default{
+    width: 60px;
+    height: 20px;
+    background-color: rgb(63,72,107);
+    border: 1px solid rgb(63,72,107);
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.delivery-info-buttonWrapper{
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px;
+    margin-top: 80px;
+    
+}
+
+.sub-app-button{
+    width: 150px;
+    height: 45px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(63,72,107);
+    border-radius: 5px;
+    padding: 0px;
+    color: rgb(63,72,107);
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    cursor: pointer;
+    outline: none;
+}
+
+.sub-app-button2{
+    width: 150px;
+    height: 45px;
+    background-color: rgb(63,72,107);
+    border: 1px solid rgb(63,72,107);
+    border-radius: 5px;
+    padding: 0px;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    cursor: pointer;
+    outline: none;
+}
+
+.member-Price{
+    margin-top: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color : rgb(63, 63, 63);
+}
+
+.delivery-Price{
+    display: flex;
+    align-items: flex-start;
+    font-size: 16px;
+    font-weight: bold;
+    color : rgb(63, 63, 63);
+
+}
+
+.delivery-Price .rmagin{
+    margin-right: 20px;
+}
+
+.delivery-PriceNum{
+    display: flex;
+    align-items: flex-start;
+    font-size: 19px;
+    font-weight: bold;
+    color : rgb(63, 63, 63);
+    margin-top: 7px;
+}
+
+.delivery-PriceNum .rmagin{
+    margin-right: 20px;
+}
+
+.delivery-PriceNum .rmaginsub{
+    margin-right: 30px;
+}

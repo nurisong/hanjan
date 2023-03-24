@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>리뷰 관련 SQL문</comment>
+	<entry key="selectProduct">
+		SELECT 
+		       PRO_NO,
+		       PRO_NAME,
+		       PRO_PRICE,
+		       PRO_IMAGE1,
+		       TO_CHAR(AVG_RATE) PRO_RATEF
+		  FROM
+		       PRODUCT
+		  JOIN
+		       (SELECT 
+		               AVG(REV_RATE) AVG_RATE, PRO_NO
+		          FROM 
+		               REVIEW
+		         WHERE
+		               REV_TYPE = 'R'
+		         GROUP
+		            BY 
+		               PRO_NO
+		        ) USING(PRO_NO)
+		 WHERE
+		       PRO_NO = ?  	  
+	</entry>
+	<entry key="selectSubProduct">
+		SELECT
+			   SUB_NO,
+			   SUB_NAME,
+			   SUB_PRICE,
+			   SUB_IMAGE1,
+			   SUB_MONTH
+		  FROM
+		       SUB_PRODUCT
+		  WHERE
+		        SUB_NO = ?
+	</entry>	
+	<entry key="insertReview">
+		INSERT 
+		  INTO
+		       REVIEW
+		       (
+		       REV_NO,
+		       REV_REPLY_DATE,
+		       REV_WRITER,
+		       PRO_NO,
+		       REV_CONTENT,
+		       REV_RATE,
+		       REV_TYPE
+		       )
+		VALUES
+		       (
+		       SEQ_RNO.NEXTVAL,
+		       NULL,
+		       ?,
+		       ?,
+		       ?,
+		       ?,
+		       ?
+		       )
+	</entry>
+	<entry key="deleteReview">
+		UPDATE
+		       REVIEW
+		   SET
+		       REV_STATUS = 'N'
+		 WHERE
+		       REV_NO = ?
+		   AND
+		       REV_TYPE = ?
+	</entry>
+	<entry key="selectListCount">
+		SELECT 
+			   COUNT(*)
+		  FROM 
+		       REVIEW
+		 WHERE 
+		       REV_STATUS = 'Y'
+		   AND
+		       REV_TYPE = ?
+	</entry>
+	<entry key="selectList">
+		SELECT *
+		  FROM (SELECT 
+		               ROWNUM RNUM, 
+		               A.*
+				  FROM 
+				  	   (SELECT 
+				               REV_NO,
+				               PRO_NO,
+				               REV_CONTENT,
+				               USER_ID,
+				               TO_CHAR(REV_DATE, 'YYYY-MM-DD') REV_DATE,
+                               REV_Rate,
+                               REV_IMG
+				          FROM 
+				               REVIEW
+				          JOIN
+				               MEMBER ON(REV_WRITER = USER_NO)
+				          LEFT
+				          JOIN
+				               (
+				               SELECT 
+				               	      FILE_PATH || CHANGE_NAME REV_IMG, REF_NO
+								 FROM 
+								      ATTACHMENT
+								WHERE 
+								      FILE_NO IN (
+								                 SELECT 
+								                        MIN(FILE_NO)
+								                   FROM
+								                        ATTACHMENT
+								                  WHERE
+								                        COMM_TYPE = 'S'
+								                  GROUP
+												     BY
+								                        REF_NO
+								                  )   
+				               ) ON (REF_NO = REV_NO)
+				         WHERE  
+				               REV_STATUS = 'Y'
+				           AND
+				               REV_TYPE = 'S'
+				         ORDER
+				            BY
+				               REV_NO DESC) A)
+		 WHERE 
+		 	   RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="insertAttachment">
+		INSERT
+		  INTO
+		       ATTACHMENT
+		       (
+		       FILE_NO,
+		       REF_NO,
+		       ORIGIN_NAME,
+		       CHANGE_NAME,
+		       FILE_PATH,
+		       COMM_TYPE
+		       )
+		VALUES
+		       (
+		       SEQ_ANO.NEXTVAL,
+		       SEQ_RNO.CURRVAL,
+		       ?,
+		       ?,
+		       ?,
+		       ?
+		       )
+	</entry>
+	<entry key="insertNewAttachment">
+		INSERT
+		  INTO
+		       ATTACHMENT
+		       (
+		       FILE_NO,
+		       REF_NO,
+		       ORIGIN_NAME,
+		       CHANGE_NAME,
+		       FILE_PATH,
+		       COMM_TYPE
+		       )
+		VALUES
+		       (
+		       SEQ_ANO.NEXTVAL,
+		       ?,
+		       ?,
+		       ?,
+		       ?,
+		       ?
+		       )
+		    
+	</entry>
+	<entry key="selectListSubProduct">
+		SELECT
+		       SUB_NO,
+		       SUB_NAME,
+		       SUB_IMAGE1,
+		       SUB_MONTH,
+		       SUB_PRICE
+		  FROM 
+		       SUB_PRODUCT
+		 WHERE
+		       SUB_NO = ?
+	</entry>
+	<entry key="selectListProduct">
+		SELECT
+		       PRO_NO,
+		       PRO_NAME,
+		       PRO_PRICE
+		  FROM
+		       PRODUCT
+		 WHERE
+		       PRO_NO = ?
+	</entry>
+	<entry key="selectSubReview">
+		SELECT
+			   REV_NO,
+			   USER_ID,
+			   TO_CHAR(REV_DATE, 'YYYY-MM-DD') REV_DATE,
+			   REV_CONTENT,
+			   PRO_NO,
+			   FILE_PATH || CHANGE_NAME REV_IMG,
+			   REV_Rate,
+			   REV_REPLY,
+			   TO_CHAR(REV_REPLY_DATE, 'YYYY-MM-DD  HH:MI:SS') REP_DATE
+		  FROM
+		       REVIEW
+		  JOIN
+		       MEMBER ON(REV_WRITER = USER_NO)
+		  LEFT
+		  JOIN
+			   ATTACHMENT ON(REV_NO = REF_NO)
+		 WHERE
+		       REV_NO = ?
+	</entry>
+	<entry key="selectUpdateReview">
+		SELECT
+			   REV_NO,
+			   REV_CONTENT,
+			   PRO_NO,
+			   FILE_PATH || CHANGE_NAME REV_IMG,
+			   REV_RATE
+		  FROM
+		       REVIEW
+		  JOIN
+		       MEMBER ON(REV_WRITER = USER_NO)
+		  LEFT
+		  JOIN
+			   ATTACHMENT ON(REV_NO = REF_NO)
+		 WHERE
+		       REV_NO = ?
+		   AND 
+		       USER_NO = ?
+	</entry>
+	<entry key="selectAList">
+		SELECT *
+		  FROM (SELECT 
+		               ROWNUM RNUM, 
+		               A.*
+				  FROM 
+				  	   (SELECT 
+				               REV_NO,
+				               PRO_NO,
+				               USER_ID,
+				               TO_CHAR(REV_DATE, 'YY-MM-DD HH:MI:SS') REV_DATE,
+				          	   REV_REPLY,
+				          	   REV_CONTENT
+				          FROM 
+				               REVIEW
+				          JOIN
+				               MEMBER ON(REV_WRITER = USER_NO)
+				         WHERE  
+				               REV_STATUS = 'Y'
+				           AND
+				               REV_TYPE = ?
+				         ORDER
+				            BY
+				               REV_NO DESC) A)
+		 WHERE 
+		 	   RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="updateReply">
+		UPDATE
+		       REVIEW
+		   SET
+		       REV_REPLY = ?,
+		       REV_REPLY_DATE = SYSDATE
+		 WHERE
+		       REV_NO = ?
+	</entry>
+	<entry key="updatePoint">
+		UPDATE
+		       POINT
+		   SET
+		       POINT = POINT + (? / 100)
+		 WHERE
+		       USER_NO IN (
+		       			  SELECT
+		       			         P.USER_NO
+		       			    FROM
+		       			         MEMBER M,
+		       			         POINT P
+		       			   WHERE
+		       			         M.USER_NO = P.USER_NO
+		       			     AND
+		       			         USER_ID = ?
+		       			  )
+	</entry>   
+	<entry key="deleteSubRev">
+		UPDATE
+		       REVIEW
+		   SET
+		       REV_STATUS = 'N'
+		 WHERE
+		       REV_NO = ?
+	</entry>
+	<entry key="updateReview">
+		UPDATE
+		       REVIEW
+		   SET
+		       REV_CONTENT = ?,
+		       REV_RATE = ?
+		 WHERE
+		       REV_NO = ? 
+	</entry>
+	<entry key="updateAttachment">
+		UPDATE
+		       ATTACHMENT
+		   SET
+		       ORIGIN_NAME = ?,
+		       CHANGE_NAME = ?,
+		       FILE_PATH = ?
+		 WHERE
+		       FILE_NO = ?
+		   AND
+		       COMM_TYPE = ?
+		       
+	</entry>
+	<entry key="deleteReview">
+		UPDATE
+		       REVIEW
+		   SET
+		       REV_STATUS = 'N'
+		 WHERE
+		       REV_NO = ?
+		   AND
+		       REV_STATUS = 'Y'
+	</entry>
+	<entry key="selectAListByProName">
+		SELECT *
+		  FROM (SELECT 
+		               ROWNUM RNUM, 
+		               A.*
+				  FROM 
+				  	   (SELECT 
+				               REV_NO,
+				               PRO_NO,
+				               USER_ID,
+				               TO_CHAR(REV_DATE, 'YY-MM-DD HH:MI:SS') REV_DATE,
+				          	   REV_REPLY,
+				          	   REV_CONTENT
+				          FROM 
+				               REVIEW R
+				          JOIN
+				               MEMBER ON(REV_WRITER = USER_NO)
+				          JOIN 
+				               (
+				               SELECT 
+				               		  PRO_NO, PRO_NAME
+				                 FROM
+				                      PRODUCT P
+				                WHERE
+				                      PRO_NAME LIKE '%' || ? || '%'
+				               ) USING(PRO_NO)
+				         WHERE  
+				               REV_STATUS = 'Y'
+				           AND
+				               REV_TYPE = 'R'
+				         ORDER
+				            BY
+				               REV_NO DESC) A)
+		 WHERE 
+		 	   RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectAListByProNo">
+		SELECT *
+		  FROM (SELECT 
+		               ROWNUM RNUM, 
+		               A.*
+				  FROM 
+				  	   (SELECT 
+				               REV_NO,
+				               PRO_NO,
+				               USER_ID,
+				               TO_CHAR(REV_DATE, 'YY-MM-DD HH:MI:SS') REV_DATE,
+				          	   REV_REPLY,
+				          	   REV_CONTENT
+				          FROM 
+				               REVIEW R
+				          JOIN
+				               MEMBER ON(REV_WRITER = USER_NO)
+				         WHERE  
+				               REV_STATUS = 'Y'
+				           AND
+				               REV_TYPE = 'R'
+				           AND
+				               PRO_NO LIKE '%' || ? || '%'
+				         ORDER
+				            BY
+				               REV_NO DESC) A)
+		 WHERE 
+		 	   RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="selectAttachment">
+		SELECT
+		       FILE_NO,
+		       ORIGIN_NAME,
+		       CHANGE_NAME,
+		       FILE_PATH
+		  FROM 
+		       ATTACHMENT
+		 WHERE
+		       REF_NO = ?
+	</entry>
+</properties>

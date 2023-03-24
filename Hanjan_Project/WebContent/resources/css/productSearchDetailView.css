@@ -1,0 +1,362 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    }
+
+	body{
+		margin: 0;
+		/* color: rgba(0,0,0,.65); */
+		width: 100%;
+		min-height: 100vh;
+		line-height: 1.5715;
+		font-size: 14px;
+	}
+	
+	div{
+		box-sizing: border-box;
+		/* border: 1px solid red; */
+	}
+
+	.header-Menu{
+		width: 100%;
+		border-bottom: 1px solid rgb(243, 243, 243);
+		margin: 0px auto;
+		padding: 0px 69px;
+	}
+
+	.header-Menu .menu-list{
+		max-width: 1144px;
+		height: 35px;
+		display: flex;
+		-webkit-box-pack: start;
+		justify-content: flex-start;
+		-webkit-box-align: baseline;
+		align-items: baseline;
+		margin: 0px auto;
+		padding: 0px;
+	}
+
+	.header-Menu .menu-list li{
+		cursor: pointer;
+		display: block;
+		font-size: 14px;
+		line-height: 14px;
+		height: 100%;
+		font-weight: bold;
+		color: rgb(112, 112, 112);
+		padding-top: 11px;
+		padding-right: 40px;
+	}
+
+	.search-detail-outer{
+		font-style: normal;
+		font-family: 'Pretendard-Regular';
+		background: transparent;
+		font-weight: 400;
+	}
+	.searchbar{
+		width: 100%;
+		height: 100%;
+		margin: 0px auto;
+		background: white;
+		margin-top: 20px;
+	}
+
+	.searchbar-inputWrapper{
+		max-width: 1144px;
+		margin: 20px auto 0px;
+		padding: 0px 69px;
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		-webkit-box-pack: justify;
+		justify-content: space-between;
+		font-size: 15px;
+	}
+
+	.searchbar-inputBox{
+		width: 100%;
+		height: 40px;
+		padding: 0px 7px 0px 16px;
+		display: flex;
+		-webkit-box-pack: justify;
+		justify-content: space-between;
+		-webkit-box-align: center;
+		align-items: center;
+		border-radius: 6px;
+		background-color: rgb(242, 242, 242);
+	}
+
+	.searchbar-inputBox .inner{
+		width: 100%;
+    	display: flex;
+	}
+
+	.searchbar-inputBox .inner input{
+		width: 100%;
+		margin: 0px 10px;
+		padding: 0px;
+		border: none;
+		background-color: transparent;
+		color: rgb(62, 62, 62);
+    	font-size: 14px;	
+		font-style: normal;
+		font-family: 'Pretendard-Regular';
+		outline: none;
+	}
+	
+	button{
+		background-color: transparent;
+		cursor: pointer;
+		border: none;
+		outline: none;
+	}
+
+	.searchbar-inputWrapper button{
+		padding: 0px;
+	}
+
+	.searchbar-inputWrapper .cancel-button{
+		color: rgb(0, 151, 243);
+		font-family: 'Pretendard-Regular';
+		font-weight: 500;
+		white-space: nowrap;
+		margin-left: 11px;
+    	font-size: 14px;	
+	}
+
+	.search-filterwrapper{
+		width: 100%;
+		border-bottom: 1px solid rgb(241, 241, 241);
+		font-weight: normal;
+		font-size: 13px;
+		color: rgb(62, 62, 62);
+		padding: 0px 69px;
+	}
+
+	.filter-list{
+		width: 100%;
+		max-width: 1144px;
+		margin: 0px auto;
+		padding-bottom: 15px;
+	}
+
+	.filter-list .filter{
+		flex-wrap: wrap;
+	}
+
+	.filter-list .flex{
+		display: flex;
+	}
+
+	.menu-wrapper{
+		width: 100%;
+		margin: 0px auto;
+		padding: 0px 69px;
+		border-top: 1px solid rgb(243, 243, 243);
+		border-bottom: 1px solid rgb(243, 243, 243);
+		margin: 20px 0px 20px 0;
+	}
+
+	.menu-wrapper .menu-list{
+		max-width: 1144px;
+		height: 35px;
+		display: flex;
+		justify-content: center;
+		align-items: baseline;
+		margin: 0px auto;
+		padding: 0px;
+	}
+
+	.menu-wrapper .menu-list li{
+		cursor: pointer;
+		display: block;
+		font-size: 14px;
+		line-height: 14px;
+		height: 100%;
+		font-weight: bold;
+		color: rgb(112, 112, 112);
+		padding-top: 11px;
+		padding-right: 40px;
+	}
+	
+	.menu-wrapper .menu-list li .menu-label{
+		position: relative;
+	}
+
+	.menu-wrapper .menu-list li:hover{
+		color: rgb(255, 175, 188);
+	}
+
+	.search-detail-productwrapper{
+		max-width: 1144px;
+		height: 100%;
+		margin: 0px auto;
+		padding: 0px 20px 45px;
+		text-align: center;
+		color: rgb(62, 62, 62);
+	}
+
+	.detail-filter{
+		margin-bottom: 25px;
+	}
+
+	.detail-filter .detail-wrapper{
+		width: 100%;
+	    min-height: 27.5px;
+    	margin: 25px 0px 0px;
+    	padding: 0px;
+    	align-items: center;
+	    justify-content: space-between;
+    	color: rgb(62, 62, 62);
+	}
+
+	.detail-filter .flex{
+		display: flex;
+	}
+
+	.detail-filter .search-result div:first-child {
+		font-weight: bold;
+    	margin-right: 2px;
+	}
+
+	.detail-filter .search-result .search-result-div {
+		font-weight: bold;
+	}
+
+	.search-ProductListWrapper{
+		padding: 0px 69px;
+	}
+
+	.search-DataListWrapper{
+		margin-top: 20px;
+	}
+
+	.search-listGrid2{
+		box-sizing: border-box;
+		display: flex;
+		margin-top: -60px;
+		justify-content: center;
+	}
+
+	.search-listGrid2 > .search-list2{
+		margin-bottom: 150px;
+		padding-left: 16px;
+		padding-top: 5px;
+		max-width: 25%;
+	}
+
+	.searchlist-card{
+		width: 100%;
+		cursor: pointer;
+	}
+
+	.searchlist-card .ispimgwrapper2 {
+		width: 260px;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		border-radius: 10px;
+	}
+
+	.search-card-content{
+		padding-top: 15px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.search-card-content .flex{
+		display: flex;
+		align-items: center;
+	}
+
+	.searchlist-card .search-imgwrapper2 {
+		width: 260px;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+		border-radius: 10px;
+	}
+
+	.search-productName{
+		width: 80px;
+		height: 41px;
+		font-size: 15px;
+		color: rgb(62, 62, 62);
+		font-weight: bold;
+		text-align: left;
+		line-height: normal;
+	}
+
+	.search-productPrice{
+		width: 120px;
+		color: rgb(62, 62, 62);
+		font-size: 16px;
+		text-align: left;
+		font-weight: bold;
+		line-height: 15px;
+	}
+
+	.search-productPrice .search-Prispimgwrapper{
+		height: 26px;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	.search-productPrice .price{
+		margin-right: 8px;
+	}
+
+	.search-card-content .search-review-wrap{
+		margin-bottom: 8px;
+	}
+
+	.search-card-content .flex{
+		display: flex;
+		align-items: center;
+	}
+
+	.search-card-content .rateScore{
+		font-size: 13px;
+		color: rgb(62, 62, 62);
+		margin: 0px 8.4px 0px 5px;
+		margin-right: 0px;
+	}
+
+	.search-card-content .search-review-wrap .rateReview{
+		font-size: 12px;
+		font-weight: normal;
+		margin-left: 6.6px;
+		color: rgb(112, 112, 112);
+		margin-bottom: 0px;
+		margin-top: 1px;
+	}
+
+	.search-card-footer{
+		width: 275px;
+		border-top: 0.5px solid rgb(216, 216, 216);
+		padding: 0px;
+		font-weight: bold;
+	}
+	
+	.search-cf-content{
+		background-color: white;
+		padding-top: 3px;
+		display: flex;
+		flex-direction: column;
+		font-size: 13px;
+		font-weight: normal;
+		color: rgb(112, 112, 112);
+		text-align: left;
+	}
+
+	.a-wrapper{
+		color: #1890ff;
+		text-decoration: none;
+		background-color: transparent;
+		outline: none;
+		cursor: pointer;
+		transition: color .3s;
+	}

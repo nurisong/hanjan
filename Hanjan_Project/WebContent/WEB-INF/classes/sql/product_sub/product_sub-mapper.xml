@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="subscriptionEnroll1">
+		INSERT 
+		  INTO
+		      SUB_PRODUCT
+		      (
+		      SUB_NO,
+		      SUB_NAME,
+		      SUB_PRICE,
+		      SUB_IMAGE1,
+		      SUB_IMAGE2,
+		      SUB_DETAIL,
+		      SUB_MONTH,
+		      SUB_STATUS
+		      )
+		VALUES
+		      (
+		      SEQ_SNO.NEXTVAL,
+		      ?,
+		      ?,
+		      ?,
+		      ?,
+		      ?,
+		      ?,
+		      'Y'
+		      )
+	</entry>
+	<entry key="selectSubscriptNo">
+		SELECT 
+			  SUB_NO
+		FROM(
+			 SELECT 
+			      SUB_NO
+			  FROM
+			      SUB_PRODUCT
+			 ORDER
+			    BY
+			      ROWNUM DESC
+			)
+		WHERE ROWNUM=1
+	
+	
+	</entry>
+	<entry key="subscriptionEnroll2">
+		SELECT 
+		      PRO_NO,
+		      PRO_NAME,
+		      PRO_PRICE,
+		      PRO_ALCOHOL,
+		      PRO_STOCK
+		  FROM
+		      PRODUCT
+		 WHERE
+		      PRO_NAME LIKE ?
+	</entry>
+	<entry key="subscriptionEnroll3">
+		INSERT 
+		INTO 
+			  SUB_PRODUCT_DETAIL
+			  (
+			  SUB_NO,
+			  PRO_NO
+			  )  
+		VALUES(
+		       ?,
+		       ?
+			  )			  									
+	</entry>
+	
+	<entry key="duplicateDelete">
+	
+	
+	DELETE 
+	FROM 
+		SUB_PRODUCT_DETAIL
+	WHERE 
+		ROWID IN(
+				 SELECT 
+				 		ROWID 
+				   FROM(
+				   		SELECT * FROM(SELECT ROW_NUMBER() OVER (PARTITION BY PRO_NO ORDER BY PRO_NO) AS NUMM, SUB_NO,PRO_NO FROM (SELECT ROW_NUMBER() OVER (PARTITION BY SUB_NO ORDER BY SUB_NO) AS NUM, SUB_NO,PRO_NO FROM SUB_PRODUCT_DETAIL)) WHERE NUMM>=2))
+	
+	
+	
+	
+	
+	
+	</entry>
+	
+	<entry key="selectScount">
+		SELECT
+			   COUNT(*)
+		  FROM
+		       SUB_PRODUCT
+	</entry>
+	<entry key="selectFirstSpage">
+	  SELECT
+			* 
+		FROM
+			(SELECT
+				 ROWNUM RNUM,
+				 A.*
+				FROM(
+					 SELECT
+						 	SUB_NO,
+						 	SUB_NAME,
+							SUB_PRICE,
+							SUB_MONTH,
+							SUB_DETAIL,
+							SUB_STATUS						
+					   FROM
+						 	SUB_PRODUCT
+					  ORDER
+					     BY
+					   	    SUB_NO DESC
+					  )  A)
+		WHERE RNUM BETWEEN 1 AND ?
+	</entry>
+	<entry key="listBarSetting">
+		SELECT
+			* 
+		FROM
+			(SELECT
+				 ROWNUM RNUM,
+				 A.*
+				FROM(
+					 SELECT
+						 	SUB_NO,
+						 	SUB_NAME,
+							SUB_PRICE,
+							SUB_MONTH,
+							SUB_DETAIL,
+							SUB_STATUS
+					   FROM
+						 	SUB_PRODUCT
+					  ORDER
+					     BY
+					   	    SUB_NO DESC
+					  )  A)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="product_subShowRevise">
+		UPDATE
+		      SUB_PRODUCT
+		   SET
+		      SUB_STATUS = 'N'
+		 WHERE
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		    OR
+		      SUB_NO = ?
+		  
+	</entry>
+	<entry key="product_subUpdate">
+		SELECT           
+		      SUB_NAME,
+		      SUB_PRICE,
+		      SUB_MONTH,
+		      SUB_DETAIL,
+		      SUB_STATUS,		            
+		      SUB_IMAGE1,
+		      SUB_IMAGE2,
+		      SUB_STATUS
+		  FROM
+		      SUB_PRODUCT
+		 WHERE
+		      SUB_NO=?
+	</entry>
+	<entry key="updateEnrollSub">
+	UPDATE
+		  SUB_PRODUCT
+	   SET
+		  SUB_NAME = ?,
+		  SUB_PRICE = ?,
+		  SUB_MONTH = ?,
+		  SUB_DETAIL = ?,		  
+		  SUB_IMAGE1 = ?,
+		  SUB_IMAGE2 = ?,
+		  SUB_STATUS = ?		  
+	 WHERE
+	 	  SUB_NO = ?	
+	</entry>
+	<entry key="selectSubProducts">
+	  SELECT
+	        SUB_NO,
+	        S.PRO_NO,
+	        PRO_NAME
+	    FROM 
+	        SUB_PRODUCT_DETAIL S, PRODUCT P
+	    WHERE
+	        S.PRO_NO=P.PRO_NO
+	    AND
+	        SUB_NO = ?
+	</entry>
+	<entry key="enrollUpdateAjax">
+		
+		SELECT 
+		      PRO_NO,
+		      PRO_NAME,
+		      PRO_PRICE,
+		      PRO_VOLUME,
+		      PRO_ALCOHOL,
+		      PRO_TYPE,
+		      PRO_STOCK,
+		      PRO_DETAIL,
+		      PRO_SHOW
+		  FROM
+		      PRODUCT
+		 WHERE
+		      PRO_NAME LIKE ?
+		 ORDER	
+		    BY
+		      PRO_NO DESC
+	
+	</entry>
+	<entry key="subNoDelete">
+		DELETE
+		  FROM
+		  	  SUB_PRODUCT_DETAIL
+		 WHERE
+		      SUB_NO = ?
+	</entry>
+	<entry key="subscriptionUpdateLast">
+		
+		INSERT 
+		INTO 
+			  SUB_PRODUCT_DETAIL
+			  (
+			  SUB_NO,
+			  PRO_NO
+			  )  
+		VALUES(
+		       ?,
+		       ?
+			  )			  									
+  
+	</entry>
+	
+	<!-- 킹호꺼=========================================================  -->
+	
+		<entry key="userSelectSubList">
+		SELECT 
+		       SUB_NO,
+		       SUB_NAME,
+		       SUB_PRICE,
+		       SUB_IMAGE1
+		  FROM
+		       SUB_PRODUCT
+		 WHERE
+		       SUB_STATUS = 'Y'
+	</entry>
+
+	<entry key="userSelectSubDetailList">
+		SELECT 
+		       SUB_NO,
+		       SUB_NAME,
+		       SUB_PRICE,
+		       SUB_IMAGE1,
+		       SUB_IMAGE2,
+		       SUB_DETAIL,
+		       SUB_MONTH,
+		       SUB_STATUS
+		  FROM
+		       SUB_PRODUCT
+		 WHERE
+		       SUB_NO = ?
+		   AND
+		       SUB_STATUS = 'Y'
+	</entry>
+
+	<entry key="userSelectSubReviewList">
+	
+		SELECT 
+		       REV_NO,
+		       REV_CONTENT,
+		       REV_RATE,
+		       RPAD(SUBSTR(USER_NAME, 1, 1), 3, '*')||SUBSTR(USER_NAME, 3, 1) "NAME"
+		  FROM 
+		       REVIEW
+		  JOIN 
+		       MEMBER ON (REV_WRITER = USER_NO)
+		 WHERE 
+		       REV_TYPE = 'S'
+		   AND 
+		       PRO_NO = ?
+	</entry>
+	
+	<entry key="userSelectSubShip">
+		SELECT 
+		       RECIPIENT,
+		       PHONE,
+		       ADDRESS
+		  FROM
+		       SHIPMENT
+		 WHERE
+		       USER_NO = ?
+		   AND
+		       BASIC_SHIP = 'Y'
+	</entry>
+	
+	<entry key="userInsertSubscription">
+		INSERT
+		  INTO
+		       SUB_MEMBER
+		       (
+		       USER_NO,
+		       SUB_NO,
+		       SUB_DATE
+		       )
+		VALUES 
+		       (
+		       ?,
+		       ?,
+		       SYSDATE
+		       )
+	</entry>
+	
+	<entry key="userUpdateSubscription">
+		UPDATE
+		       MEMBER
+		   SET 
+		       SUB_STATUS = 'Y'
+		 WHERE 
+		       USER_NO = ?
+	</entry>
+	
+	<entry key="mypageSubLookupList">
+		SELECT
+		       SUB_NO,
+		       SUB_NAME,
+		       SUB_PRICE
+  		  FROM
+  		       SUB_PRODUCT
+		  JOIN
+		       SUB_MEMBER USING (SUB_NO)
+		 WHERE
+		  	   USER_NO = ?
+	</entry>
+	
+	<entry key="mypageSubDelete">
+		DELETE
+		  FROM
+		       SUB_MEMBER
+		 WHERE
+		       USER_NO = ?
+		   AND
+		       SUB_NO = ?
+	</entry>
+	
+	<entry key="mypageUpdateSubStatus">
+		UPDATE
+		       MEMBER
+		   SET 
+		       SUB_STATUS = 'N'
+		 WHERE 
+		       USER_NO = ?   
+	</entry>
+	
+	
+</properties>

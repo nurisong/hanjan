@@ -1,0 +1,371 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    body{
+		margin: 0;
+		/* color: rgba(0,0,0,.65); */
+		width: 100%;
+		min-height: 100vh;
+		line-height: 1.5715;
+		font-size: 14px;
+	}
+	
+	div{
+		box-sizing: border-box;
+		/* border: 1px solid red; */
+	}
+	
+    .outer{
+		background-color: transparent;
+	}
+
+    .Detail-ContentWrapper{
+        background-color: white;  
+        font-family: 'Pretendard-Regular';
+        font-style: normal;
+    }
+
+    .DetailWrapper{
+        width: 100%;
+        max-width: 1184px;
+        min-height: 1000px;
+        padding: 20px 0px 250px;
+        margin: 0px auto;
+        text-align: center;
+        display: flex;
+    }
+
+    .DetailWrapper .left-side{
+        width: 100%;
+        max-width: 700px;
+        display: inline-block;
+    }
+
+    .Detail-Card{
+        text-align: left;
+        margin-left: 100px;
+        color: rgb(112, 112, 112);
+        font-weight: bold;
+    }
+
+    .Detail-Card #image{
+        position: relative;
+    }
+
+    .Detail-Card .detail-box{
+        font-size: 0px;
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 15px;
+    }
+
+    .detail-soolcard{
+        width: 100%;
+    }
+
+    .card1{
+        position: relative;
+        display: block;
+    }
+
+    .card2{
+        transform: translateZ(0);
+    }
+    
+    .card3{
+        opacity: 1;
+        transform: translate3d(0px, 0px, 0px);
+        width: 293px;
+    }
+
+    .card4{
+        outline: none;
+        width: 293px;
+    }
+
+    .detail-soolcard .detail-box {
+        width: 50%;
+        font-size: 0px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    .detail-con{
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        font-size: 14px;
+    }
+
+    .detail-con .sector .first{
+        line-height: 1.11;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .detail-con .sector .second{
+        line-height: 1.11;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    .detail-productName{
+        font-size: 24px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 27ch;
+        font-weight: 800;
+    }
+
+    .detail-subtitle{
+        font-size: 16px;
+        color: rgb(178, 178, 178);
+        margin-bottom: 10px;
+    }
+
+    .detail-tag{
+        font-size: 16px;
+        color: rgb(255, 175, 188);
+        margin-bottom: 10px;
+    }
+    .rating{
+        margin-bottom: 30px;
+    }
+
+    .rating-text{
+        font-size: 30px;
+        margin-left: 8px;
+    }
+
+    .review{
+        font-size: 15px;
+        color: rgb(63,72,107);
+        margin-left: 10px;
+        margin-bottom: 8px;
+        text-decoration: none;
+    }
+
+    .detail-con .sector .third{
+        line-height: 1.14;
+        margin-bottom: 50px;
+    }
+
+    .detail-con .sector .fourth{
+        margin-bottom: 0px;
+        font-size: 14px;
+    }
+
+    .Detail-Card .flex{
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        color: rgb(112, 112, 112);
+        word-break: keep-all;
+    }
+
+    .Detail-Card .flex label{
+        margin-right: 5px;
+    }
+
+    .de-price{
+        margin: 0px;
+        margin-top: 25px;
+    }
+
+    .de-discount{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        margin-bottom: 15px;
+    }
+
+    .purchasebox{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+
+    .pricetext{
+        font-size: 30px;
+        margin-left: 0px;
+        font-weight: 800;
+    }
+
+    .Detail-Card .flex .blue{
+        color: rgb(63,72,107);
+    }
+
+    .de-line{
+        margin-top: 80px;
+        margin-bottom: 80px;
+        margin-left: 100px;
+        width: 600px;
+        border-top: 0.5px solid rgb(216, 216, 216);
+    }
+
+    .Detail-img{
+        width: 700px;
+        height: 3000px;
+        margin-left: 54px;
+    }
+
+    .DetailWrapper .right-side{
+        width: 1000px;
+        max-width: 1000px;
+        display: inline-block;
+        position: fixed;
+        top: 100px;
+        vertical-align: top;
+        margin-left: 70px;
+    }
+
+    .basket-sidebar{
+        width: 300px;
+        float: right;
+        max-height: 100vh;
+        padding: 30px 10px;
+        border-radius: 10px;
+        box-shadow: rgb(0 0 0 / 16%) 0px 0px 3px 0px;
+        font-weight: bold;
+        color: rgb(112, 112, 112);
+    }
+
+    .basket-sidebar .label{
+        text-align: left;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 800;
+        color: rgb(62, 62, 62);
+    }
+
+    .basket-sidebar .select-wrapper{
+        width: 100%;
+        height: 45px;
+        border-radius: 3px;
+        border: 1px solid rgb(224, 224, 224);
+        text-align: left;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+
+    .minus{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .basket-sidebar .select-wrapper input{
+        width: 100%;
+        height: 100%;
+        padding: 2px 0px 0px;
+        margin: 0px 28px;
+        font-size: 16px;
+        line-height: 16px;
+        text-align: center;
+        border-top: none;
+        border-bottom: none;
+        border-image: initial;
+        border-left: 1px solid rgb(224, 224, 224);
+        border-right: 1px solid rgb(224, 224, 224);
+        background-image: none;
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    .basket-sidebar .select-wrapper .count{
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 28px;
+    }
+    .plus{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+    }
+
+    .basket-sidebar .deilvery{
+        font-size: 13px;
+        line-height: 16px;
+        text-align: left;
+        font-weight: 400;
+        background-color: rgb(247, 247, 247);
+        margin-bottom: 20px;
+        padding: 10px 6px;
+        border-radius: 5px;
+    }
+
+    .deilvery-icon{
+        display: inline-block;
+        width: 30px;
+        vertical-align: top;
+    }
+   
+    .total-price{
+        font-size: 18px;
+        font-weight: 800;
+    }
+
+    .deilvery-info{
+        display: inline-block;
+        width: 235px;
+    }
+    
+    button{
+        cursor: pointer;
+        outline: none;
+    }
+
+    .cart-btn{
+        width: 100%;
+        height: 48px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(178, 178, 178);
+        border-radius: 5px;
+        padding: 0px;
+        margin: 0px 0px 10px;
+        color: rgb(112, 112, 112);
+        white-space: nowrap;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease 0s;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    .gopay{
+        width: 100%;
+        height: 48px;
+        background-color: rgb(63,72,107);
+        border: 1px solid rgb(63,72,107);
+        border-radius: 5px;
+        padding: 0px;
+        color: rgb(255, 255, 255);
+        white-space: nowrap;
+        font-size: 18px;
+        font-weight: bold;
+        transition: all 0.3s ease 0s;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    

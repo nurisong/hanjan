@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<entry key= "selectStockListCount">
+		SELECT 
+			   COUNT(*)
+		  FROM 
+				PRODUCT
+	</entry>
+	
+	<entry key = "selectStockList">
+	
+		  SELECT* 
+	  	FROM
+			(SELECT
+			 ROWNUM RNUM,A.*
+				FROM(
+					 SELECT
+						 	PRO_NO,
+						 	PRO_NAME,
+							PRO_PRICE,
+							SALE,
+							PRO_STOCK
+					   FROM
+						 	PRODUCT
+					   JOIN
+					   		STOCK USING(PRO_NO)
+					  ORDER
+					     BY
+				   	    PRO_NO DESC
+					 ) A)
+			 WHERE 
+		 		   RNUM BETWEEN ? AND ?
+	</entry>
+
+	<entry key = "soldoutListCount">
+				SELECT 
+				 	  	COUNT(*)
+				  FROM 
+						PRODUCT
+				WHERE
+						PRO_STOCK = 0
+	
+	
+	
+	
+	
+	</entry>
+	
+	<entry key="saleList">
+	    SELECT to_char(ORDER_DATE, 'yyyy-mm') AS YM, SUM(ORDER_PRICE) AS SOP
+        FROM ORDERS2
+        JOIN MEMBER USING (USER_NO)
+        GROUP BY  to_char(ORDER_DATE, 'yyyy-mm')
+        <![CDATA[
+        HAVING to_char(ORDER_DATE, 'yyyy-mm') >= '2022-07' AND to_char(ORDER_DATE, 'yyyy-mm') <= '2022-12'
+        ]]>
+        ORDER BY to_char(ORDER_DATE, 'yyyy-mm') ASC
+	</entry>
+	
+	<entry key="soldoutList">
+	
+			  SELECT* 
+	  	FROM
+			(SELECT
+			 ROWNUM RNUM,A.*
+				FROM(
+					 SELECT
+						 	PRO_NO,
+						 	PRO_NAME,
+							SALE,
+							SOLDOUT_DATE
+					   FROM
+						 	STOCK
+					   JOIN
+					   		PRODUCT USING(PRO_NO)
+					  ORDER
+					     BY
+				   	    PRO_NO DESC
+					 ) A)
+			 WHERE 
+		 		   RNUM BETWEEN ? AND ?
+
+	</entry>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</properties>

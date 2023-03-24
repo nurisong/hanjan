@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="insertProduct">
+		INSERT
+		  INTO
+		 	   PRODUCT
+	   		   (
+		 		PRO_NO,
+		 		PRO_NAME,
+		 		PRO_PRICE,
+		 		PRO_VOLUME,
+		 		PRO_ALCOHOL,
+		 		PRO_STOCK,
+		 		PRO_TYPE,
+		 		PRO_DETAIL,
+		 		PRO_SHOW,
+		 		PRO_IMAGE1,
+		 		PRO_IMAGE2		 				 		 		 
+			 	)
+		 VALUES
+		 		(
+		 		SEQ_PNO.NEXTVAL,
+		 		?,
+		 		?,
+		 		?,
+		 		?,
+		 		?,
+		 		?,
+		 		?,
+		 		'Y',
+		 		?,
+		 		?		 		
+		 		)
+		 		
+	</entry>
+	<entry key="selectCount">
+		SELECT
+			   COUNT(*)
+		  FROM
+		       PRODUCT
+	</entry>
+	
+	
+	<entry key="selectFirstPage">
+  SELECT
+		* 
+	FROM
+		(SELECT
+			 ROWNUM RNUM,
+			 A.*
+			FROM(
+				 SELECT
+					 	PRO_NO,
+					 	PRO_NAME,
+						PRO_PRICE,
+						PRO_VOLUME,
+						PRO_ALCOHOL,
+						PRO_TYPE,
+						PRO_STOCK,
+						PRO_DETAIL,
+						PRO_SHOW
+				   FROM
+					 	PRODUCT
+				  ORDER
+				     BY
+				   	    PRO_NO DESC
+				  )  A)
+	WHERE RNUM BETWEEN 1 AND ?
+	</entry>
+	<entry key="listBarSetting">
+		SELECT
+			* 
+		FROM
+			(SELECT
+				 ROWNUM RNUM,
+				 A.*
+				FROM(
+					 SELECT
+						 	PRO_NO,
+						 	PRO_NAME,
+							PRO_PRICE,
+							PRO_VOLUME,
+							PRO_ALCOHOL,
+							PRO_TYPE,
+							PRO_STOCK,
+							PRO_DETAIL,
+							PRO_SHOW
+					   FROM
+						 	PRODUCT
+					  ORDER
+					     BY
+					   	    PRO_NO DESC
+					  )  A)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	<entry key="productShowRevise">
+		UPDATE
+		      PRODUCT
+		   SET
+		      PRO_SHOW = 'N'
+		 WHERE
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		    OR
+		      PRO_NO = ?
+		  
+	</entry>
+	<entry key="productUpdate">
+		SELECT           
+		      PRO_NAME,
+		      PRO_PRICE,
+		      PRO_VOLUME,
+		      PRO_ALCOHOL,
+		      PRO_STOCK,
+		      PRO_TYPE,
+		      PRO_DETAIL,
+		      PRO_SHOW,      
+		      PRO_IMAGE1,
+		      PRO_IMAGE2
+		  FROM
+		      PRODUCT
+		 WHERE
+		      PRO_NO=?
+	</entry>
+	<entry key="updateEnrollProduct">
+	UPDATE
+		  PRODUCT
+	   SET
+		  PRO_NAME = ?,
+		  PRO_PRICE = ?,
+		  PRO_VOLUME = ?,
+		  PRO_ALCOHOL = ?,
+		  PRO_STOCK = ?,
+		  PRO_TYPE = ?,
+		  PRO_DETAIL = ?,		  
+		  PRO_IMAGE1 = ?,
+		  PRO_IMAGE2 = ?,
+		  PRO_SHOW = ?
+	 WHERE
+	 	  PRO_NO = ?	
+	</entry>
+	<entry key="searchListBarSetting">
+		SELECT
+			* 
+		FROM
+			(SELECT
+				 ROWNUM RNUM,
+				 A.*
+				FROM(
+					 SELECT 
+                          PRO_NO,
+                          PRO_NAME,
+                          PRO_PRICE,
+                          PRO_VOLUME,
+                          PRO_ALCOHOL,
+                          PRO_TYPE,
+                          PRO_STOCK,
+                          PRO_DETAIL,
+                          PRO_SHOW
+                      FROM
+                          PRODUCT
+                     WHERE
+                          PRO_NAME LIKE ?
+					  ORDER
+					     BY
+					   	    PRO_NO DESC
+					  )  A)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 킹호========================== -->
+	
+	<entry key="userSelectProductList">
+        SELECT 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+			   PRO_DETAIL,
+			   SALE,
+               AVG(REV_RATE) RATE
+		  FROM
+		  	   PRODUCT
+     LEFT JOIN
+               STOCK USING (PRO_NO)
+          JOIN
+               REVIEW USING (PRO_NO)
+         WHERE
+               PRO_SHOW = 'Y'
+      GROUP BY 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+			   PRO_DETAIL,
+			   SALE
+         ORDER
+            BY
+               SALE DESC
+	</entry>
+	
+
+	<entry key="userSelectProduct">
+		SELECT 
+		       PRO_NO,
+		       PRO_NAME,
+		       PRO_PRICE,
+		       PRO_VOLUME,
+		       PRO_ALCOHOL,
+		       PRO_TYPE,
+		       PRO_DETAIL,
+		       PRO_IMAGE1,
+		       PRO_IMAGE2,
+		       SALE,
+		       AVG(REV_RATE) RATE
+		  FROM
+		  	   PRODUCT
+		  JOIN
+		       STOCK USING (PRO_NO)
+		  JOIN
+		       REVIEW USING (PRO_NO)
+		 WHERE
+			   PRO_NO = ?
+		   AND     
+		       PRO_SHOW = 'Y' 
+		 GROUP
+		    BY 
+		       PRO_NO,
+		       PRO_NAME,
+		       PRO_PRICE,
+		       PRO_VOLUME,
+		       PRO_ALCOHOL,
+		       PRO_TYPE,
+		       PRO_DETAIL,
+		       PRO_IMAGE1,
+		       PRO_IMAGE2,
+		       SALE
+	</entry>
+	
+	<entry key="userSelectProductTotalList">
+		SELECT 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+			   PRO_DETAIL,
+			   SALE,
+               AVG(REV_RATE) RATE
+		  FROM
+		  	   PRODUCT
+     LEFT JOIN
+               STOCK USING (PRO_NO)
+          JOIN
+               REVIEW USING (PRO_NO)
+         WHERE
+               PRO_SHOW = 'Y'
+      GROUP BY 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+			   PRO_DETAIL,
+			   SALE
+	</entry>
+	
+	<entry key="userSelectProductNewList">
+		SELECT 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+			   PRO_DETAIL,
+			   SALE,
+               AVG(REV_RATE) RATE
+		  FROM
+		  	   PRODUCT
+     LEFT JOIN
+               STOCK USING (PRO_NO)
+          JOIN
+               REVIEW USING (PRO_NO)
+         WHERE
+               PRO_SHOW = 'Y'
+      GROUP BY 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+			   PRO_DETAIL,
+			   SALE
+         ORDER
+            BY
+               PRO_NO DESC
+	</entry>
+	
+	<entry key="userSelectProductTypeList">
+  SELECT 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+               PRO_TYPE,
+			   PRO_DETAIL,
+			   SALE,
+               AVG(REV_RATE) RATE
+		  FROM
+		  	   PRODUCT
+     LEFT JOIN
+               STOCK USING (PRO_NO)
+          JOIN
+               REVIEW USING (PRO_NO)
+         WHERE
+               PRO_SHOW = 'Y'
+           AND
+               PRO_TYPE = ?
+      GROUP BY 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+               PRO_TYPE,
+			   PRO_DETAIL,
+			   SALE
+         ORDER
+            BY
+               SALE DESC
+	</entry>
+	
+	<entry key="userSelectSearchResultList">
+        SELECT 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+               PRO_TYPE,
+			   PRO_DETAIL,
+			   SALE,
+               AVG(REV_RATE) RATE
+		  FROM
+		  	   PRODUCT
+     LEFT JOIN
+               STOCK USING (PRO_NO)
+          JOIN
+               REVIEW USING (PRO_NO)
+         WHERE
+               PRO_SHOW = 'Y'
+           AND
+               PRO_NAME LIKE ?
+      GROUP BY 
+			   PRO_NO,
+			   PRO_IMAGE1,
+			   PRO_NAME,
+			   PRO_PRICE,
+               PRO_TYPE,
+			   PRO_DETAIL,
+			   SALE
+	</entry>
+	
+	<entry key="userSelectProductReview">
+		SELECT 
+		       RPAD(SUBSTR(USER_ID, 1, 2), 4, '*')||SUBSTR(USER_ID, 99, 1) "USER_ID",
+		       REV_CONTENT,
+		       REV_DATE,
+		       REV_RATE
+		  FROM 
+		       REVIEW LEFT JOIN MEMBER ON (REV_WRITER = USER_NO)
+		 WHERE 
+		       PRO_NO = ?
+	</entry>
+	
+	
+	
+	
+</properties>

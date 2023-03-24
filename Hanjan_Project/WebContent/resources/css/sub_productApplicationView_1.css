@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    margin: 0;
+    /* color: rgba(0,0,0,.65); */
+    width: 100%;
+    min-height: 100vh;
+    line-height: 1.5715;
+    font-size: 14px;
+}
+div{
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+.sub-app-contentWrapper{
+    background: white;
+}
+
+.app-wrapper{
+    margin: 0px auto;
+    font-size: 18px;
+    padding: 89px 0px 207px;
+}
+
+.app-title{
+    font-weight: 800;
+    text-align: center;
+    color: rgb(63,72,107);
+    line-height: 1.67;
+}
+
+.app-wrapper .progress-label{
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(112, 112, 112);
+}
+
+.app-wrapper .progress-label span{
+    font-weight: bold;
+}
+.sub-introWrapper{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.intro-content-wrapper{
+    position: relative;
+    text-align: center;
+    padding: 137px 0px 95px;
+}
+
+.sub-introWrapper .subscribe-amount-content{
+    height: 200px;
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.sub-introWrapper .sub-box-img{
+    width: 181px;
+    margin-right: 86px;
+}
+
+.intro-content-wrapper .right-text-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.intro-content-wrapper .right-text-wrapper .price-text{
+    color: rgb(112, 112, 112);
+    font-weight: bold;
+}
+
+.intro-content-wrapper .right-text-wrapper .select-box-wrapper{
+    width: 110px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.icon-multiply{
+    font-size: 13px;
+    color: rgb(178, 178, 178);
+    margin: 10px 10px 0px 0px;
+}
+
+.sub-select-wrapper{
+    width: 100%;
+    border-bottom: 1px solid rgb(62, 62, 62);
+    margin-top: 10px;
+}
+
+.sub-select-wrapper select{
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(0, 151, 243);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    height: 29px;
+    line-height: 29px;
+    background: url(https://www.sooldamhwa.com/assets/icon-select-arrow.svg) right center no-repeat;
+    box-sizing: border-box;
+    appearance: none;
+}
+
+.intro-content-wrapper .right-text-wrapper .price-text.second{
+    margin-top: 30px;
+}
+
+.intro-content-wrapper .right-text-wrapper .price-text{
+    color: rgb(112, 112, 112);
+    font-weight: bold;
+}
+
+.intro-content-wrapper .right-text-wrapper .detail-text{
+    color: rgb(178, 178, 178);
+    font-size: 13px;
+    margin-top: 9px;
+    font-weight: bold;
+}
+
+.sub-app-button{
+    width: 150px;
+    height: 45px;
+    background-color: rgb(63,72,107);
+    border: 1px solid rgb(63,72,107);
+    border-radius: 5px;
+    padding: 0px;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease 0s;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    cursor: pointer;
+    outline: none;
+}

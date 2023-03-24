@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>게시글 관련 SQL문</comment>
+	
+	<entry key="selectListCount">
+		SELECT 
+			   COUNT(*)
+		  FROM 
+		       BOARD
+		 WHERE 
+		       BOARD_STATUS = 'Y'
+	</entry>
+	<entry key="selectList">
+		SELECT *
+		  FROM (SELECT 
+		               ROWNUM RNUM, 
+		               A.*
+				  FROM 
+				  	   (SELECT 
+				               BOARD_NO,
+				               BOARD_TITLE,
+				               USER_ID,
+				               TO_CHAR(BOARD_DATE, 'YY-MM-DD') BOARD_DATE,
+				               BOARD_COUNT
+				          FROM 
+				               BOARD
+				          JOIN
+				               MEMBER ON(BOARD_WRITER = USER_NO)
+				         WHERE  
+				               BOARD_STATUS = 'Y'
+				           AND
+				               BOARD_TYPE = 'B'
+				         ORDER
+				            BY
+				               BOARD_NO DESC) A)
+		 WHERE 
+		 	   RNUM BETWEEN ? AND ?
+		       
+	</entry>
+	<entry key="insertBoard">
+		INSERT
+		  INTO
+		       BOARD
+		       (
+		       BOARD_NO,
+		       BOARD_WRITER,
+		       BOARD_TITLE,
+		       BOARD_CONTENT,
+		       BOARD_TYPE
+		       )
+		VALUES
+		       (
+		       SEQ_BNO.NEXTVAL,
+		       ?,
+		       ?,
+		       ?,
+		       'B'
+		       )
+	</entry>
+	<entry key="insertAttachment">
+		INSERT
+		  INTO
+		       ATTACHMENT
+		       (
+		       FILE_NO,
+		       REF_NO,
+		       ORIGIN_NAME,
+		       CHANGE_NAME,
+		       FILE_PATH,
+		       COMM_TYPE
+		       )
+		VALUES
+		       (
+		       SEQ_ANO.NEXTVAL,
+		       SEQ_BNO.CURRVAL,
+		       ?,
+		       ?,
+		       ?,
+		       ?
+		       )
+	</entry>
+	<entry key="increaseCount">
+		UPDATE 
+		       BOARD
+		   SET
+		       BOARD_COUNT = BOARD_COUNT + 1
+		 WHERE
+		       BOARD_NO = ?
+		   AND
+		       BOARD_STATUS = 'Y' 
+		       
+	</entry>	
+	<entry key="selectBoard">
+		SELECT 
+			   BOARD_NO,
+		       BOARD_TITLE,
+		       USER_ID,
+		       TO_CHAR(BOARD_DATE, 'YY-MM-DD HH:MI:SS') BOARD_DATE,
+		       BOARD_COUNT,
+		       BOARD_CONTENT
+		  FROM 
+		       BOARD
+		  JOIN
+		       MEMBER ON(USER_NO = BOARD_WRITER)
+		 WHERE
+		       BOARD_NO = ?
+		   AND 
+		       BOARD_STATUS = 'Y'
+	</entry>
+	<entry key="selectAttachment">
+		SELECT 
+		       FILE_NO,
+		       ORIGIN_NAME,
+		       CHANGE_NAME,
+		       FILE_PATH
+		 FROM 
+		       ATTACHMENT
+		WHERE
+		       COMM_TYPE = 'B'
+		  AND
+		       REF_NO = ?
+		  AND
+		       ATT_STATUS = 'Y'
+		       
+	</entry>
+	<entry key="updateBoard">
+		UPDATE
+		       BOARD
+		   SET
+		       BOARD_TITLE = ?,
+		       BOARD_CONTENT = ?
+		 WHERE
+		       BOARD_NO = ?
+		   AND
+		       BOARD_STATUS = 'Y'
+		   AND 
+		       BOARD_TYPE = 'B'
+	</entry>
+	<entry key="updateAttachment">
+		UPDATE
+		       ATTACHMENT
+		   SET
+		       ORIGIN_NAME = ?,
+		       CHANGE_NAME = ?,
+		       FILE_PATH = ?,
+		       UPLOAD_DATE = SYSDATE
+		 WHERE
+		       FILE_NO = ?
+		   AND
+		       COMM_TYPE = ?
+		      
+	</entry>
+	<entry key="insertNewAttachment">
+		INSERT 
+		  INTO
+		       ATTACHMENT
+	    VALUES
+	           (
+	           SEQ_BNO.NEXTVAL,
+	           ?,
+	           ?,
+	           ?,
+	           ?,
+	           SYSDATE,
+	           ?,
+	           DEFAULT
+	           )
+	</entry>
+	<entry key="deleteBoard">
+		UPDATE
+		       BOARD
+		   SET
+		       BOARD_STATUS = 'N'
+		 WHERE
+		       BOARD_NO = ?
+		   AND 
+		       BOARD_TYPE = ?
+	</entry>
+</properties>

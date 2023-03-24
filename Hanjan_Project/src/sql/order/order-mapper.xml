@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	
+	<entry key="userInsertCart">
+		INSERT
+		  INTO
+		       CART
+		       (
+		       CART_NO,
+		       USER_NO,
+		       PRO_NO,
+		       ORDER_COUNT
+		       )
+		VALUES 
+		       (
+		       SEQ_CNO.NEXTVAL,
+		       ?,
+		       ?,
+		       ?)
+	</entry>
+	
+	<entry key="selectCartList">
+		SELECT  CART_NO,
+        		USER_NO,
+        		C.PRO_NO,
+        		ORDER_COUNT,
+        		PRO_NAME,
+        		PRO_PRICE,
+        		PRO_DETAIL,
+        		PRO_IMAGE1
+    	FROM CART C
+    		JOIN PRODUCT P ON (C.PRO_NO = P.PRO_NO)
+    	WHERE
+    		  USER_NO = ?
+	</entry>
+
+	<entry key="preOrder">
+		SELECT 	PRO_NO,
+				PRO_NAME,
+				PRO_PRICE,
+				PRO_ALCOHOL,
+				PRO_IMAGE1
+			FROM PRODUCT
+			WHERE
+				PRO_NO = ?
+	
+	</entry>
+
+	<entry key="insertOrderSheet">
+		INSERT
+		  INTO 
+		       ORDERS 
+		       (
+		       ORDER_NO,
+		       USER_NO,
+		       SHIP_NO,
+		       ORDER_DATE,
+		       ORDER_PRICE,
+		       ORDER_CHECK,
+		       ORDER_TOOL
+		       )
+		VALUES 
+		       (
+		       SEQ_ONO.NEXTVAL,
+		       ?,
+		       ?,
+		       SYSDATE,
+		       ?,
+		       'Y',
+		       ?
+		       )
+	</entry>
+	
+	<entry key="insertOrderProSheet">
+		INSERT
+		  INTO
+		      ORDER_PRODUCT
+		      (
+		      ORDER_NO,
+		      PRO_NO,
+		      ORDER_COUNT
+		      )
+		VALUES
+		     (
+		     SEQ_OPNO.NEXTVAL,
+		     ?,
+		     ?
+		     )
+	</entry>
+	
+	<entry key="myPageOrderList">
+		SELECT
+		      SHIP_NAME,
+		      RECIPIENT,
+		      ADDRESS,
+		      PHONE
+		 FROM 
+		      SHIPMENT
+		WHERE 
+		      USER_NO = ?
+
+	</entry>
+	
+	<entry key="myPageOrderProductList">
+		SELECT 
+		       ORDER_DATE,
+		       ORDER_PRICE,
+		       ORDER_COUNT,
+		       PRO_NAME,
+		       PRO_VOLUME,
+		       PRO_ALCOHOL,
+		       PRO_DETAIL, 
+		       PRO_IMAGE1
+		  FROM
+		       ORDERS
+          JOIN MEMBER USING (USER_NO)
+	 	  LEFT JOIN ORDER_PRODUCT USING (ORDER_NO)
+		  LEFT JOIN PRODUCT USING (PRO_NO)
+		 WHERE
+		       USER_NO = ?
+		 ORDER
+		    BY
+		       ORDER_DATE DESC
+	</entry>
+	
+	
+	
+	
+	
+	
+	
+</properties>

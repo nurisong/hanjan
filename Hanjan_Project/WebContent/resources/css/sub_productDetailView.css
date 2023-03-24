@@ -1,0 +1,300 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    }
+
+	body{
+		margin: 0;
+		/* color: rgba(0,0,0,.65); */
+		width: 100%;
+		min-height: 100vh;
+		line-height: 1.5715;
+		font-size: 14px;
+	}
+	div{
+		box-sizing: border-box;
+		/* border: 1px solid red; */
+	}
+	.outer{
+		background-color: transparent;
+	}
+
+	.sub-detail-wrapper{
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		padding-bottom: 100px;
+		text-align: center;
+		color: rgb(62, 62, 62);
+		font-size: 28px;
+		font-weight: 400;
+		font-family: 'Pretendard-Regular';
+	}
+
+	.sub-detail-wrapper .main-banner{
+		height: 100%;
+		position: relative;
+		cursor: pointer;
+		width: 100%;
+	}
+
+	.sub-detail-advantegeWrapper{
+		width: 100%;
+		background-color: rgb(248, 248, 248);
+	}
+
+	.sub-detail-advantegeWrapper .sub-detail-title{
+		width: 100vw;
+		color: rgb(62, 62, 62);
+		font-size: 28px;
+		font-weight: 800;
+		padding-top: 50px;
+	}
+
+	.sub-detail-advantegeWrapper .sub-detail-content{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 50px 0px;
+	}
+
+	.sub-detail-card{
+		width: 236px;
+		display: grid;
+		grid-template-rows: 20px auto;
+		grid-template-columns: 145px auto;
+		gap: 10px 25px;
+		column-gap: 15px;
+	}
+
+	.sub-detail-card .subject{
+		color: rgb(63,72,107);
+		font-weight: bold;
+		font-size: 20px;
+		text-align: left;
+		white-space: nowrap;
+	}
+
+	.sub-detail-card img{
+		width: 130px;
+  		grid-column: 2 / auto;
+	}
+
+	.sub-detail-card .detail-description{
+		margin-top: 13px;
+		color: rgb(62, 62, 62);
+		font-weight: 400;
+		font-size: 15px;
+		text-align: left;
+		line-height: 19px;
+	}
+
+	.sub-detail-reviewWrapper{
+		margin-top: 100px;
+		width: 100%;
+	}
+
+	.sub-detail-reviewWrapper .title{
+		width: 100vw;
+		color: rgb(62, 62, 62);
+		font-size: 25px;
+		font-weight: 800;
+		padding-top: 50px;
+		text-align: center;
+	}
+	
+	.sub-detail-reviewWrapper .sub-detail-content{
+		display: flex;
+		-webkit-box-pack: center;
+		justify-content: center;
+		-webkit-box-align: start;
+		align-items: start;
+		margin-top: 50px;
+	}
+	
+	.sub-detail-reviewCard{
+		width: 100%;
+		max-width: 325px;
+		display: flex;
+		flex-direction: column;
+		background: rgb(245, 249, 255);
+		text-align: left;
+		color: rgb(62, 62, 62);
+		font-size: 13px;
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-header{
+		width: 325px;
+		height: 160px;
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-body{
+		padding: 30px 20px 0px;
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-body .detail-review{
+		font-weight: bold;
+		color: rgb(255, 129, 150);
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-header img{
+		width: 325px;
+	}
+
+	.detail-mui{
+		margin-bottom: 5px;
+	}
+
+	.detail-mui2{
+		margin-bottom: 10px;
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-body .subject{
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.sub-detail-reviewWrapper .sub-content{
+		display: flex;
+		-webkit-box-pack: center;
+		justify-content: flex-start;
+		-webkit-box-align: start;
+		align-items: start;
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-footer{
+		display: flex;
+		-webkit-box-align: center;
+		align-items: center;
+		padding: 20px 20px 30px;
+		color: rgb(63,72,107);
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-footer img{
+		width: 13.3px;
+   		height: 13.3px;
+	}
+
+	.sub-detail-reviewCard .detail-reviewCard-footer .reviewer{
+		font-weight: 500;
+    	white-space: nowrap;
+	}
+	.sub-detail-reviewCard .detail-reviewCard-footer .subscription-month{
+		font-weight: bold;
+	}
+
+	.detail-mui3{
+		margin-right: 5px;
+	}
+
+	.detail-mui4{
+		margin-right: 10px;
+	}
+	
+	.subscription-origin{
+		margin-left: 10px;
+	}
+
+	.detail-compositionWrapper{
+		width: 100%;
+		max-width: 750px;
+		margin: 0px auto;
+		padding-top: 30px;
+		display: flex;
+		align-items: center;
+	}
+
+	.detail-compositionWrappertitle{
+		margin-top: 120px;
+	}
+	.detail-compositionWrappertitle .sub-com-title{
+		font-size: 28px;
+		font-weight: bold;
+	}
+
+	.detail-compositionWrapper img{
+		width: 100%;
+		max-width: 375px;
+	}
+
+	.detail-compositionWrapper .sub-con-content{
+		width: 100%;
+    	padding: 20px 0px 0px 20px;
+	}
+
+	.com-content-wrapper{
+		min-width: 375px;
+		display: flex;
+		color: rgb(62, 62, 62);
+		font-size: 13px;
+		line-height: 16px;
+		text-align: left;
+		margin: 10px 0px;
+	}
+
+	.content-number{
+		width: 15px;
+		height: 15px;
+		display: flex;
+		-webkit-box-pack: center;
+		justify-content: center;
+		-webkit-box-align: center;
+		align-items: center;
+		font-size: 11px;
+		line-height: 11px;
+		font-weight: bold;
+		color: rgb(255, 255, 255);
+		background: rgb(63,72,107);
+		border-radius: 50%;
+	}
+
+	.sub-com-content{
+		margin-left: 40px;
+	}
+
+	.sub-com-content .subject{
+		font-weight: bold;
+		min-width: 75px;
+		margin: 0px 10px 0px 5px;
+	}
+
+	.sub-com-content .com-description{
+		margin: 0px;
+    	font-weight: 500;
+	}
+
+	.detail-subscribe-box{
+		margin-top: 150px;
+	}
+
+	.subscription-button{
+		width: 250px;
+		height: 45px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 30px auto 10px;
+		font-size: 15px;
+		font-weight: 700;
+		cursor: pointer;
+	}
+
+	.buttonstyle{
+		font-family: 'Pretendard-Regular';
+		font-weight: 400;
+		background-color: rgb(63,72,107);
+		border: 1px solid rgb(63,72,107);
+		border-radius: 5px;
+		padding: 0px;
+		color: rgb(255, 255, 255);
+		white-space: nowrap;
+		transition: all 0.3s ease 0s;
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	.detail-subscribe-box .bold{
+		font-weight: bold;
+	}

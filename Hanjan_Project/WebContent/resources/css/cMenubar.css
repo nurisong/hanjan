@@ -1,0 +1,98 @@
+*>a{
+    text-decoration: none;
+    color: black;
+}
+button {
+    font-family: 'Pretendard-Regular';
+}
+#top-ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+#top-ul>li {
+    float: left;
+    width: 120px;
+    text-align: center;
+    height: 100%; /* hover기능을 위해 부모요소에 꽉차게 설정 */
+    display: block;
+    line-height: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-right : 40px;
+    margin-left : 40px;
+}
+.outer {
+    background-color: rgb(244, 244, 244);
+    /* height: 100vh; */
+    padding: 80px 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.top-bar {
+    background-color: white;
+    width: 1100px;
+    height: 100px;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-area{
+    background-color: white;
+    width: 1100px;
+    /* height: 800px; */
+    border-radius: 20px;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+.inline-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inline-block>div {
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    /* margin: 30px; */
+    /* margin-bottom: 50px; */
+    width: 130px;
+    font-size: 18px;
+    /* border: 1px solid palevioletred; */
+}
+#name-area {
+    font-size: 25px;
+}
+#userName {
+    color: rgb(63, 72, 107);
+    font-weight: bold;
+}
+#click {
+    color: rgb(255, 175, 188);
+}
+#point-text {
+    font-size: 18px;
+}
+#point {
+    font-size: 21px;
+    font-weight: bold;
+    color: rgb(63, 72, 107);
+}
+#title {
+    margin: 50px 0px 30px 80px;
+    /* height: 100px; */
+    font-size: 25px;
+}
+#title-line {
+    width: 950px;
+    margin: auto;
+}

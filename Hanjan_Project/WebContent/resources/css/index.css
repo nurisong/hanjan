@@ -1,0 +1,299 @@
+
+	@font-face {
+        font-family: 'Pretendard-Regular';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        }
+    
+        body{
+            margin: 0;
+            /* color: rgba(0,0,0,.65); */
+            width: 100%;
+            min-height: 100vh;
+            line-height: 1.5715;
+            font-size: 14px;
+        }
+        div{
+            box-sizing: border-box;
+            /* border: 1px solid red; */
+        }
+        .outer{
+            background-color: transparent;
+        }
+    
+        .sub-contentWrapper{
+            background: white;
+        }
+    
+        .sub-content{
+            position: relative;
+            text-align: center;
+            color: rgb(112, 112, 112);
+            font-size: 28px;
+            font-weight: 400;
+        }
+    
+        .sub-content .sub-header{
+            background-color: rgb(247, 247, 247);
+            font-size: 24px;
+        }
+        
+        .sub-content .sub-header .first-header{
+            padding-top: 50px;
+        }
+    
+        .sub-content .grey12{
+            color: rgb(62, 62, 62);
+        }
+    
+        .sub-content .bold{
+            font-weight: bold;
+        }
+    
+        .sub-content .sub-menuwrapper{
+            background-color: rgb(247, 247, 247);
+        }
+    
+        .sub-menubox{
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+    
+        .sub-boxCard{
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: 100px;
+            cursor: pointer;
+            padding-left: 20px;
+        }
+    
+        .sub-boxCard #basic{
+            width: 364px;
+            height: 400px;
+        }
+    
+        .sub-boxCard .sub-boxImg{
+            width: 364px;
+            height: 400px;
+            background-size: 364px 405px;
+            background-repeat: no-repeat;
+        }
+    
+        .sub-boxDescription{
+            border-radius: 10px;
+            position: absolute;
+            padding: 20px;
+            transform: translate(0%, 174%);
+            background-color: white;
+            box-shadow: rgb(62 62 62 / 10%) 0px 2px 5px 0px;
+            width: 335px;
+        }
+    
+        .sub-boxCard .sub-box-header{
+            display: flex;
+            justify-content: flex-start;
+        }
+    
+        .sub-contentWrapper .bold{
+            font-weight: bold;
+        }
+    
+        .sub-boxCard .sub-price{
+            font-size: 15px;
+            padding-top: 4px;
+            color: rgb(255, 129, 150);
+        }
+    
+        .sub-boxCard .sub-type{
+            font-size: 20px;
+            margin-right: 10px;
+        }
+    
+        .sub-boxCard .sub-des{
+            font-size: 16px;
+            margin-top: 8px;
+            color : rgb(112, 112, 112);
+            text-align: left;
+        }
+    
+        .sub-boxCard .divider{
+            width: 20px;
+            height: 1.5px;
+            background-color: rgb(224, 224, 224);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    
+        .sub-boxCard .date-wrapper{
+            display: flex;
+            font-size: 14px;
+            color: rgb(112, 112, 112);
+            text-align: left;
+        }
+    
+        .sub-boxCard .date-wrapper .sub-date{
+            margin-right: 5px;
+        }
+    
+        .sub-text-wrapper{
+            display: flex;
+            font-size: 14px;
+            color: rgb(63,72,107);
+            text-align: left;
+        }
+    
+        .sub-content .sub-primary{
+            color: rgb(255, 175, 188);
+        }
+    
+        .sub-content .bold{
+            font-weight: bold;
+        }
+    
+        .sub-content .reason{
+            margin-top: 120px;
+        }
+    
+        .sub-content .sub-main-img{
+            width: 680px;
+            height: 380px;
+            margin: 30px auto 0px;
+        }
+    
+        .sub-content .key-point-box {
+            margin-top: 100px;
+        }
+    
+        .sub-content .key-point-box .key-points {
+            margin-bottom: 70px;
+        }
+    
+        .sub-content .landingIcon1{
+            background-image: url(https://www.sooldamhwa.com/images/modules/home/liquor.png);
+        }
+    
+        .sub-content .landingIcon2{
+            background-image: url(https://d38cxpfv0ljg7q.cloudfront.net/assets/bubble_conversation.png);
+        }
+    
+        .sub-content .icon{
+            width: 100px;
+            height: 100px;
+            margin: 0px auto;
+            background-position: 50% 50%;
+            background-size: cover;
+        }
+    
+        .sub-content .key-point-box .key-points .sub-main{
+            margin: 15px 0px;
+        }
+    
+        .sub-content .sub-small-font{
+            font-size: 20px;
+        }
+    
+        .sub-smaller-font{
+            font-size: 18px;
+        }
+    
+        .sub-content .sub-line{
+            width: 220px;
+            height: 0.5px;
+            margin: 0px auto 90px;
+            background-color: rgb(255, 175, 188);
+            display: none;
+        }
+    
+        .sub-specialBox{
+            margin-top: 200px;
+        }
+    
+        .sub-content .navy{
+            color: rgb(63,72,107);
+        }
+    
+        .specialBox-content{
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+    
+        .specialBox-cardWrapper{
+            display: flex;
+            -webkit-box-pack: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 50px;
+            margin-bottom: 100px;
+            cursor: pointer;
+            padding-left: 20px;
+        }
+    
+        .special-card{
+            width: 364px;
+            height: 400px;
+            background-color: rgb(196,217,227);
+        }
+    
+        .special-card-icon{
+            width: 100px;
+            height: 100px;
+            margin: 0px auto;
+            background-position: 50% 50%;
+            background-size: cover;
+            
+        }
+    
+        .sub-content .special-iconimg{
+            margin-top: 100px;
+            margin-bottom: 20px;
+            background-image: url(https://www.sooldamhwa.com/images/modules/subscribe/thumbs_up.png);
+        }
+
+        .sub-content .special-iconimg2{
+            margin-top: 100px;
+            margin-bottom: 20px;
+            background-image: url(https://www.sooldamhwa.com/images/modules/subscribe/img_pick_drink.png);
+        }
+    
+        .special-cardText{
+            font-size: 17px;
+        }
+    
+        .sub-content .subscribe-box{
+            margin-top: 100px;
+            margin-bottom: 150px;
+        }
+    
+        
+    
+        .sub-content .subscription-button{
+            width: 250px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    
+        .buttonstyle{
+            font-family: 'Pretendard-Regular';
+            font-weight: 400;
+            background-color: rgb(63,72,107);
+            border: 1px solid rgb(63,72,107);
+            border-radius: 5px;
+            padding: 0px;
+            color: rgb(255, 255, 255);
+            white-space: nowrap;
+            transition: all 0.3s ease 0s;
+            box-shadow: none !important;
+            text-shadow: none !important;
+        }

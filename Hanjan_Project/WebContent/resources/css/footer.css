@@ -1,0 +1,108 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    }
+
+    div{
+        box-sizing: border-box;
+        font-family: 'Pretendard-Regular';
+    }
+
+    .footer{
+        width: 100%;
+        padding: 30px 20px 50px;
+        background: white;
+        border-top: 1px solid rgb(224, 224, 224);
+    }
+
+    .footer-inner{
+        width: 100%;
+        max-width: 1144px;
+        margin: 0px auto;
+    }
+
+    .footer-inner .flex{
+        display: flex;
+    }
+
+    .footer-inner .justify-between {
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    }
+
+    .footer-subDescription{
+        height: 100%;
+        color: rgb(62, 62, 62);
+        font-size: 12px;
+    }
+
+    .footer-subDescription .company{
+        margin-bottom: 16px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 16px;
+        word-break: keep-all;
+    }
+
+    .footer-subDescription p:nth-child(2) {
+        margin-bottom: 8px;
+    }
+
+    .footer-subDescription .call{
+        font-size: 11px;
+        line-height: 11px;
+    }
+    
+    .footer-inner2{
+        margin: 10px 0px;
+        display: flex;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 12px;
+    }
+
+    .footer-inner2 a{
+        margin-right: 20px;
+        color: rgb(62, 62, 62);
+    }
+
+    .footer-inner3{
+        width: 100%;
+        color: rgb(112, 112, 112);
+        font-size: 12px;
+        line-height: 21px;
+    }
+
+    .footer-inner .flex{
+        display: flex;
+    }
+
+    .footer-inner3 .flex{
+        flex-wrap: wrap;
+    }
+    
+    .footer-inner3 #flex2{
+        flex-wrap: wrap;
+        margin-top: -20px;
+    }
+    
+    .footer-inner3 .h-1{
+        margin-right: 12px;
+    }
+
+    .footer-inner3 .h-2{
+        margin-right: 15px;
+    }
+
+    .footer-inner3 .nicepay{
+        /* margin-top: 10px; */
+        color: rgb(178, 178, 178);
+    }
+
+    .footer-inner3 .nicepay p{
+        line-height: 17px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
